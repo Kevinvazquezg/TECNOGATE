@@ -1,18 +1,63 @@
-let products = document.getElementById("products");
-for (let i = 0; i < 8; i++) {
-    var contenedor = document.createElement("div");
-    contenedor.setAttribute("id", "p" + i);
-    var algunTexto = "Algún texto";
-    let producto = `
-    <div class="card" style="width: 18rem; margin-top: 20px;">
-        <img src="https://image.freepik.com/psd-gratis/instagram-maqueta-telefono-movil-blanco-iconos-3d_106244-1723.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="card-text">$500.00</p>
-            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
-        </div>
-    </div>`;
-    contenedor.innerHTML += producto
-    products.appendChild(contenedor)
+class Trends {
+    constructor(data) {
+        this.data = data
+    }
+    static async getTrends() {
+        let url = "https://api.mercadolibre.com/trends/MLM/MLM1648";
+        const resp = await fetch(url);
+        const data = await resp.json();
+        let Product = new Trends(data)
+        await Product.CreateKeyword()
+        
+    }
+    async CreateKeyword() {
+
+       
+      
+        let ctn = document.createElement('div');
+        let nombre;
+        
+        for(let i=0; i<1; i++)
+        {
+           let url = "https://api.mercadolibre.com/sites/MLM/search?q="+this.data[i].keyword;
+           const resp = await fetch(url);
+           const data = await resp.json();
+           let Product = new Trends(data)  
+           nombre = document.createElement('p');
+           nombre.textContent = `${this.data[i].keyword}`;
+           await Product.CreateProduct()
+        }
+    }
+   async CreateProduct() {
+    let products = document.getElementById("products");
+    for (let i = 0; i < 8; i++) {
+        var contenedor = document.createElement("div");
+        contenedor.setAttribute("id", "p" + i);
+        
+        let producto = `
+        <div class="card" style="width: 18rem; margin-top: 20px;">
+            <img src="${this.data.results[i].thumbnail}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${this.data.results[i].title}</h5>
+                <p class="card-text">
+                $ ${this.data.results[i].price}MXN
+                </p>
+                <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
+            </div>
+        </div>`;
+        
+        contenedor.innerHTML += producto
+        
+        products.appendChild(contenedor)
+    }
+    }
+
+   
 }
+Trends.getTrends()
+
+
+
+
+
+
