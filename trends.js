@@ -17,32 +17,31 @@ class Trends {
         let ctn = document.createElement('div');
         let nombre;
         
-        for(let i=0; i<1; i++)
+        for(let i=0; i<100; i++)
         {
            let url = "https://api.mercadolibre.com/sites/MLM/search?q="+this.data[i].keyword;
            const resp = await fetch(url);
            const data = await resp.json();
            let Product = new Trends(data)  
-           nombre = document.createElement('p');
-           nombre.textContent = `${this.data[i].keyword}`;
            await Product.CreateProduct()
         }
     }
    async CreateProduct() {
     let products = document.getElementById("products");
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i <20; i++) {
         var contenedor = document.createElement("div");
         contenedor.setAttribute("id", "p" + i);
         
         let producto = `
-        <div class="card" style="width: 18rem; margin-top: 20px;">
+        <div class="card" style=" margin-top: 10px;">
             <img src="${this.data.results[i].thumbnail}" class="card-img-top img_product" alt="...">
-            <div class="card-body">
-                <h5 class="card-title limitado">${this.data.results[i].title}</h5>
+            <div class="card-body"> 
+                <p class="card-title limitado" ;>${this.data.results[i].title}</p>
                 <p class="card-text">
                 $ ${this.data.results[i].price}MXN
-                </p>
                 <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
+                </p>
+                
             </div>
         </div>`;
         
@@ -52,12 +51,29 @@ class Trends {
     }
     }
 
+    
+
    
 }
+
+
+
 Trends.getTrends()
 
 
 
 
+function ellipsis_box(elemento, max_chars){
+    limite_text = $(elemento).text();
+    if (limite_text.length > max_chars)
+    {
+    limite = limite_text.substr(0, max_chars)+" ...";
+    $(elemento).text(limite);
+    }
+    }
+    $(function()
+    {
+    ellipsis_box(".limitado", 4);
+    });
 
 

@@ -4,12 +4,28 @@ html {
 }
 
 body {
+    
     font-family: 'Open Sans', sans-serif;
 }
 
+#menu{
+    display: flex;
+    justify-content: center!important;
+}
 #products {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: flex-start;
 }
+.limitado{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  }
+
+  .img_product{
+      width: 200px;
+      height: 200px;
+  }
