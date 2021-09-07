@@ -14,8 +14,8 @@ let navbar = `
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="login.html"> Entrar</a>
           <a class="nav-link" href="#">Mi cuenta</a>
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
-              <i class="fas fa-shopping-cart"></i>
+          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+              <i class="fas fa-shopping-cart" id="items"></i>
           </a>
       </div>
     </div>
