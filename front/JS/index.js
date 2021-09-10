@@ -59,7 +59,7 @@ Trends.getTrends()
 
 async function getCart() {
 
-    const result = await fetch('http://localhost:3000/cart');
+    const result = await fetch('https://tecnogate-tecla.herokuapp.com/cart');
     const cart = await result.json();
     console.log(cart);
 }

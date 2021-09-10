@@ -1,5 +1,5 @@
 async function agregarProducto(Articulo) {
-    await fetch('http://localhost:3000/cart', {
+    await fetch('https://tecnogate-tecla.herokuapp.com/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

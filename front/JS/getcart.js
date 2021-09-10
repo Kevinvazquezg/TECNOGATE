@@ -7,7 +7,7 @@ class Cart{
 
      static async getCart() {
 
-        const result = await fetch('http://localhost:3000/cart');
+        const result = await fetch('https://tecnogate-tecla.herokuapp.com/cart');
         const cart = await result.json();
         console.log(cart);
         let shoppingCart = new Cart(cart)

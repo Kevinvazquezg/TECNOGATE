@@ -3,7 +3,7 @@ class Productos {
         this.data = data
     }
     static async getTrends() {
-        let url = "http://localhost:3000/products";
+        let url = "https://tecnogate-tecla.herokuapp.com/products";
         const resp = await fetch(url);
         const data = await resp.json();
         let Product = new Productos(data)
