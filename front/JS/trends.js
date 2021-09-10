@@ -17,7 +17,7 @@ class Trends {
         let ctn = document.createElement('div');
         let nombre;
         
-        for(let i=0; i<100; i++)
+        for(let i=0; i<20; i++)
         {
            let url = "https://api.mercadolibre.com/sites/MLM/search?q="+this.data[i].keyword;
            const resp = await fetch(url);
@@ -33,15 +33,14 @@ class Trends {
         contenedor.setAttribute("id", "p" + i);
         
         let producto = `
-        <div class="card" style=" margin-top: 10px;">
-            <img src="${this.data.results[i].thumbnail}" class="card-img-top img_product" alt="...">
-            <div class="card-body"> 
-                <p class="card-title limitado" ;>${this.data.results[i].title}</p>
-                <p class="card-text">
-                $ ${this.data.results[i].price}MXN
-                <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
+        <div class="card" style="width: 18rem; margin-top: 20px;">
+            <div class="card-body">
+            <img src="${this.data.results[i].thumbnail}" class="card-img-top img_product item-image" alt="...">
+                <h5 class="card-title limitado item-title" id="p">${this.data.results[i].title}</h5>
+                <p class="card-text item-price">
+                $${this.data.results[i].price}MXN
                 </p>
-                
+                <button class="item-button btn btn-primary addToCart" data-id="${this.data.results[i].id}">AÑADIR AL CARRITO</button>
             </div>
         </div>`;
         

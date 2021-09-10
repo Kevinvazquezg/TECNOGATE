@@ -5,10 +5,12 @@ async function agregarProducto(Articulo) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(Articulo)
-    });   
+    });
+
+   
 }
 
-products.addEventListener('click', e =>{
+laptops.addEventListener('click', e =>{
     addCarrito(e)
 })
 
@@ -39,7 +41,7 @@ let Articulo = {
     clave:"Una clave para protegernos a todos"
 }   
     agregarProducto(Articulo)
-    
+
     
 }
 

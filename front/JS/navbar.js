@@ -6,7 +6,7 @@ let navbar = `
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="index.html"><i class="fas fa-home"></i> Inicio</a>
-                <a class="nav-link" href="#">Laptops</a>
+                <a class="nav-link" href="laptops.html">Laptops</a>
                 <a class="nav-link" href="#">Tablets y Accesorios</a>
                 <a class="nav-link" href="#">Servidores</a>
             </div>
@@ -14,7 +14,7 @@ let navbar = `
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="login.html"> Entrar</a>
           <a class="nav-link" href="#">Mi cuenta</a>
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+          <a class="nav-link" href="cart.html" tabindex="-1" aria-disabled="true">
               <i class="fas fa-shopping-cart" id="items"></i>
           </a>
       </div>
@@ -23,3 +23,4 @@ let navbar = `
 `;
 contenedor.innerHTML += navbar
 nav.appendChild(contenedor)
+

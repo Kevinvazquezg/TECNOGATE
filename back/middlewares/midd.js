@@ -20,7 +20,7 @@ log = function (req,res,next) {
 }
 
 Autenticar = function (req,res,next) {
-    const {nombre,codigo,clave} = req.body;
+    const {clave} = req.body;
     if(clave == "Una clave para protegernos a todos"){
         return next()
     }
