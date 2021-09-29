@@ -1,0 +1,39 @@
+body,
+html {
+    height: 100%;
+}
+
+body {
+    
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu{
+    display: flex;
+    justify-content: center!important;
+}
+#products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+#laptops {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.limitado{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  }
+
+  .img_product{
+      width: 200px;
+      height: 200px;
+  }
+
+
