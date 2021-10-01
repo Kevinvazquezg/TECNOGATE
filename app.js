@@ -1,20 +1,22 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
-const sequileze = require('./db/conexion');
+const sequileze = require('./back/db/conexion');
     // const productsView = require('./back/view/productsView');
-const homeView = require('./views/homeView');
-const loginView = require('./views/loginView');
-const registerView = require('./views/registerView');
+const homeView = require('./back/view/homeView');
+const loginView = require('./back/view/loginView');
+const registerView = require('./back/view/registerView');
 
 const app = express();
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine','ejs');
-
+app.set('views', __dirname + '/views');
 
 async function serverStart() {
     try {

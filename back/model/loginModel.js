@@ -1,12 +1,14 @@
 const sequelize = require('../db/conexion');
+const bcryptjs = require('bcryptjs');
+
 
 module.exports = class loginModel {
     constructor(login){
         this.login = login;
     }
     async find (user){
-        let result = await sequelize.query("SELECT [user],email,[name] FROM users WHERE [user] = '" + user.user + "' AND [password] = '" + user.password + "'");
-        if (result[0].length > 0) {
+        let result = await sequelize.query("SELECT * FROM users WHERE [user] = '" + user.user + "'");
+        if (result[0].length > 0 && (await bcryptjs.compare(user.pass, result[0][0].password))) {
             if (user.user == result[0][0].user) {
                 return result[0][0];
             } else {
