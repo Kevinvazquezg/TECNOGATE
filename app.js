@@ -7,9 +7,17 @@ const sequileze = require('./back/db/conexion');
 const homeView = require('./back/view/homeView');
 const loginView = require('./back/view/loginView');
 const registerView = require('./back/view/registerView');
+const laptops = require('./back/view/laptopsView');
+const tablets = require('./back/view/tabletsView');
+const servers = require('./back/view/serversView');
+const trends = require('./back/view/trendsView');
+const cartView = require('./back/view/cartView');
 
 const app = express();
+
+
 app.use(express.urlencoded({extended:true}))
+
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
@@ -37,3 +45,8 @@ serverStart();
 homeView(app);
 loginView(app);
 registerView(app);
+laptops(app);
+tablets(app);
+servers(app);
+trends(app);
+cartView(app);

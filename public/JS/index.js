@@ -36,14 +36,14 @@ class Trends {
         
         let producto = `
         <div class="card" style="width: 18rem; margin-top: 20px;">
-            <div class="card-body">
+            <form class="card-body" action="/cart" method="POST">
             <img src="${this.data.results[i].thumbnail}" class="card-img-top img_product item-image" alt="...">
-                <h5 class="card-title limitado item-title" id="p">${this.data.results[i].title}</h5>
-                <p class="card-text">
-                $<span class="item-price">${this.data.results[i].price}</span>MXN
-                </p>
-                <button class="item-button btn btn-primary addToCart" data-id="${this.data.results[i].id}">AÑADIR AL CARRITO</button>
-            </div>
+                <input type="hidden" value="${this.data.results[i].id}" name="id">
+                <input type="hidden" value="1" name="cantidad">
+                <input type= text class="card-title limitado item-title" id="p" name="title" value="${this.data.results[i].title}" readonly></input>
+                <input class="card-text item-price" name="price" value="${this.data.results[i].price}" style="border:0" readonly ><p>MXN</p>
+                <button type="submit" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+            </form>
         </div>`;
         
         contenedor.innerHTML += producto

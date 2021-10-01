@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/283e7ac55c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <title>TECNOGATE</title>
+</head>
+<body>
+
+    <div class="sticky-top" id="navbar">
+
+    </div>
+    <div class="container prod" id="laptops">
+        <% for (var i = 0; i < data[0].length; i++) { %>
+           
+            <div class="card" style="width: 18rem; margin-top: 20px;">
+                <form class="card-body" action="/cart" method="POST">
+                <img src='<%= data[0][i].image %>'' class="card-img-top img_product item-image" alt="...">
+                    <input type="hidden" value="<%= data[0][i].id %>" name=id>
+                    <input type="hidden" value="1" name="cantidad">
+                    <input type= text class="card-title limitado item-title" id="p" name="title" value="<%= data[0][i].name %>" readonly></input>
+                    <input class="card-text item-price" name="price" value="<%= data[0][i].price %> " style="border:0" readonly ><p>MXN</p>
+                </input>
+                    <button type="submit" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                </form>
+            </div>
+      <%   } %>
+    </div>
+
+    <script src="JS/navbar.js"></script>
+    <script src="JS/laptops.js"></script>
+    <script src="JS/laptop_cart.js"></script>
+</body>
+</html>

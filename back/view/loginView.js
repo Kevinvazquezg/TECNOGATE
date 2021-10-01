@@ -3,7 +3,7 @@ const loginController = require('../controller/loginController')
 module.exports = async (app) => {
 
     app.get('/login', async(req,res) => {
-        res.render('loginView',{
+        res.render('login',{
             alert: false,
             alertTitle: "Advertencia",
             alertMessage: "Ingrese un usuario y contraseña",
@@ -18,7 +18,7 @@ module.exports = async (app) => {
         let user = req.body;
    
         if(!user.user || !user.pass){
-            res.render('loginView',{
+            res.render('login',{
                 alert: true,
                 alertTitle: "Advertencia",
                 alertMessage: "Ingrese un usuario y contraseña",
@@ -37,7 +37,7 @@ module.exports = async (app) => {
                 }
                 res.cookie('jwt', login, cookieOptions)
                 console.log(login)
-                res.render('loginView',{
+                res.render('login',{
                     alert: true,
                     alertTitle: "Conexión Exitosa",
                     alertMessage: "Login Correcto",
@@ -48,7 +48,7 @@ module.exports = async (app) => {
                 })
             }
             else{
-                res.render('loginView',{
+                res.render('login',{
                     alert: true,
                     alertTitle: "Advertencia",
                     alertMessage: "Usuario y/o contraseña incorrectos",

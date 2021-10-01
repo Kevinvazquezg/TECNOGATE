@@ -5,10 +5,10 @@ let navbar = `
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="index.html"><i class="fas fa-home"></i> Inicio</a>
-                <a class="nav-link" href="laptops.html">Laptops</a>
-                <a class="nav-link" href="#">Tablets y Accesorios</a>
-                <a class="nav-link" href="#">Servidores</a>
+                <a class="nav-link active" aria-current="page" href="/"><i class="fas fa-home"></i> Inicio</a>
+                <a class="nav-link" href="/laptops">Laptops</a>
+                <a class="nav-link" href="/tablets">Tablets y Accesorios</a>
+                <a class="nav-link" href="/servers">Servidores</a>
             </div>
         </div>
         <div class="navbar-nav">
