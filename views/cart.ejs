@@ -7,15 +7,111 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/283e7ac55c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href
+    <link rel="stylesheet" href="CSS/cart.css">
   </head>
   <body>
     <div class="sticky-top" id="navbar">
     </div>
-    <div class="container mt-5 p-3 rounded cart" id="shopCart">   
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+<div class="container">                
+<div class="contentbar">                
+        <!-- Start row -->
+        <div class="row">
+            <!-- Start col -->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card m-b-30">
+                    <div class="card-header">
+                        <h5 class="card-title">Cart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 col-xl-8">
+                                <div class="cart-container">
+                                    <div class="cart-head">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Action</th>                                               
+                                                        <th scope="col">Product</th>
+                                                        <th scope="col">Qty</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col" class="text-right">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% var sub = 0; %>
+                                                  <% for (var i = 0; i < data.length; i++) { %>
+                                                    <% var tot = (data[i].price *  data[i].cantidad);
+                                                        sub = sub + tot;
+                                                     %>
+                                                     
+                                                    <tr>
+                                                        <th scope="row"><%= i+1 %></th>
+                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                        <td> <%= data[i].name %> </td>
+                                                        <td>
+                                                            <div class="form-group mb-0">
+                                                                <input type="text" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="<%= data[i].cantidad %>" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td>$<%= data[i].price %></td>
+                                                        <td class="text-right">$ <%= tot.toFixed(2) %> </td>
+                                                    </tr>
+                                                  <%   } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="cart-body">
+                                        <div class="row">
+                                            <% var tax = sub * .16 
+                                               var amount = sub + tax;
+                                            %>
+                                            <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                                <div class="order-total table-responsive ">
+                                                    <table class="table table-borderless text-right">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Sub Total :</td>
+                                                                <td>$ <%= sub.toFixed(2) %> MXN</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Shipping :</td>
+                                                                <td>$0.00</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IVA(16%) :</td>
+                                                                <td>$ <%= tax.toFixed(2) %> MXN</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="f-w-7 font-18"><h4>Amount :</h4></td>
+                                                                <td class="f-w-7 font-18"><h4>$<%= amount.toFixed(2) %> MXN</h4></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-footer text-right">
+                                        <a href="page-checkout.html" class="btn btn-success my-1">Proceed to Checkout<i class="ri-arrow-right-line ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End col -->
+        </div>
+        <!-- End row -->
+    </div>
+    </div>
     </div>
 
     <script src="JS/navbar.js"></script>
-    <script src="JS/getcart.js"></script>
     
   </body>

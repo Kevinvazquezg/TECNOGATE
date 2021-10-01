@@ -13,3 +13,14 @@ module.exports.add = async(product) => {
     }
 }
 
+module.exports.get = async() => {
+    let getProduct = new cartModel();
+    let data = await getProduct.get();
+    if(data){
+        return data
+    }
+    else{
+        return "Error"
+    }
+}
+

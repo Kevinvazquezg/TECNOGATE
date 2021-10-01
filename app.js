@@ -11,6 +11,7 @@ const laptops = require('./back/view/laptopsView');
 const tablets = require('./back/view/tabletsView');
 const servers = require('./back/view/serversView');
 const trends = require('./back/view/trendsView');
+const account = require('./back/view/accountView');
 const cartView = require('./back/view/cartView');
 
 const app = express();
@@ -49,4 +50,5 @@ laptops(app);
 tablets(app);
 servers(app);
 trends(app);
+account(app)
 cartView(app);

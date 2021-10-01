@@ -1,3 +1,4 @@
+const { compareSync } = require('bcryptjs');
 const sequelize = require('../db/conexion');
 
 
@@ -14,7 +15,7 @@ module.exports = class cartModel{
        try{
 
             let result = await sequelize.query("SELECT * FROM cartProducts WHERE id_product = '" + product.id + "'");
-            if(!result){
+            if(result[0].length == 0){
             await sequelize.query(`INSERT INTO cartProducts (id_product, [name], price, cantidad) VALUES (?,?,?,?)`,
             {replacements: newUser, type: sequelize.QueryTypes.SELECT});
             return "Usuario registrado"
@@ -32,4 +33,18 @@ module.exports = class cartModel{
         }
 
     }
+
+
+    async get() {
+
+            let result = await sequelize.query("SELECT * FROM cartProducts");
+            if(result.length > 0){
+                // console.log(result[0])
+                return result[0];
+            }
+            else{
+                return "false"
+            }
+        }
+    
 }
