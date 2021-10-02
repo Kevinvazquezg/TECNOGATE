@@ -16,7 +16,7 @@ module.exports = async (app) => {
         let data = await cartController.add(product);
         if(data)
         {
-            res.redirect('/laptops')
+            res.redirect('/')
         }
     })
 }

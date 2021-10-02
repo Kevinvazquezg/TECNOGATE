@@ -7,7 +7,7 @@ module.exports = class accountModel{
     
     async get(user){
        
-        let result = await sequelize.query("SELECT * FROM users WHERE [user] = '" + user + "'");
+        let result = await sequelize.query("SELECT * FROM users WHERE id = '" + user + "'");
         if (result[0].length > 0) {
             
                 return result[0][0];
@@ -18,7 +18,9 @@ module.exports = class accountModel{
     }
 
     async update(user){
-        let result = await sequelize.query("UPDATE users SET user = '" + user.user  + "' WHERE user = '" + user.user + "'");
+        await sequelize.query("UPDATE users SET [user] = '" + user.user  + "', [name] = '" + user.name  + "', email = '" + user.email  + "' WHERE id = '" + user.id + "'");
+        return await sequelize.query("SELECT * FROM users WHERE id = '" + user.id + "'");
+        
     }
 
 }
