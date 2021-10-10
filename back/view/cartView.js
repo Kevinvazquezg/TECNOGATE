@@ -7,7 +7,7 @@ module.exports = async (app) => {
     app.get('/cart',isAuthenticated.isAuthenticated, async(req,res) => {
         let data = await cartController.get();
         console.log(data)
-         res.render('cart',{data })
+         res.render('cart',{data})
     })
 
     app.post('/cart',isAuthenticated.isAuthenticated, async(req,res) => {
@@ -16,7 +16,7 @@ module.exports = async (app) => {
         let data = await cartController.add(product);
         if(data)
         {
-            res.redirect('/')
+            res.render('index')
         }
     })
 }

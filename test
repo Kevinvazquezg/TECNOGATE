@@ -1,0 +1,9 @@
+total 256
+-rw-r--r--    1 kevinvazquezguzman  staff    1589 Oct  1 16:14 app.js
+drwxr-xr-x@   7 kevinvazquezguzman  staff     224 Oct  1 09:45 back
+drwxr-xr-x@ 278 kevinvazquezguzman  staff    8896 Oct  1 10:00 node_modules
+-rw-r--r--    1 kevinvazquezguzman  staff  119251 Oct  1 10:00 package-lock.json
+-rw-r--r--    1 kevinvazquezguzman  staff     875 Oct  1 12:19 package.json
+drwxr-xr-x@   5 kevinvazquezguzman  staff     160 Sep 27 09:59 public
+-rw-r--r--    1 kevinvazquezguzman  staff       0 Oct  2 09:09 test
+drwxr-xr-x@  11 kevinvazquezguzman  staff     352 Oct  1 14:44 views
