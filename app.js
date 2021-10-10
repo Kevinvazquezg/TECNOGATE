@@ -1,4 +1,6 @@
 const express = require('express');
+const mercadopago = require ('mercadopago');
+
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
@@ -22,6 +24,13 @@ const productsView = require('./back/view/productsView');
 const updateProductView = require('./back/view/updateProductView');
 const newProductView = require('./back/view/newProductView');
 const deleteProductView = require('./back/view/deleteProductView');
+const checkoutView = require('./back/view/checkoutView');
+const bodyParser = require('body-parser');
+
+// Agrega credenciales
+mercadopago.configure({
+  access_token: 'TEST-1439335977964475-101006-5e5f2bfca7618135f4aae591f8a558ba-315032284'
+});
 
 const app = express();
 
@@ -70,3 +79,4 @@ productsView(app);
 updateProductView(app);
 newProductView(app);
 deleteProductView(app);
+checkoutView(app);
